@@ -13,3 +13,5 @@ Written by using **Python 3.13** and library **PyTelegramBotAPI**.
    ```bash
    git clone https://github.com/laze1rs/currency_converter.git
    cd currency_converter
+
+TOKEN WAS CHANGED, TOKEN DOSN'T WORKS NOW!!!
