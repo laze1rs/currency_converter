@@ -2,17 +2,20 @@ import telebot
 from telebot.types import *
 from currency_converter import *
 
-bot = telebot.TeleBot(token='8447622930:AAF8qKlPNc_hCF9c6TvObjSxve1Ou2nht-Y')
+bot = telebot.TeleBot(token='8447622930:AAESBwngQRMLtcwOqyph9RB5ysHn567y8Fc')
 currency = CurrencyConverter()
 amount = 0
 
 @bot.message_handler(commands=['start', 'convert'])
 def convert(message):
     global amount
+    conv = ReplyKeyboardMarkup(resize_keyboard=True)
+    converter = KeyboardButton(text='/convert')
+    conv.add(converter)
     try:
         amount = int(message.text.strip())
     except ValueError:
-        bot.send_message(message.chat.id, 'Please enter amount to convert.')
+        bot.send_message(message.chat.id, 'Please enter amount to convert.', reply_markup=conv)
         bot.register_next_step_handler(message, convert)
         return
 
